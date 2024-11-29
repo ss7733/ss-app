@@ -1,1 +1,1 @@
-# ss.github.io
+# ss
