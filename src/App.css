@@ -1,7 +1,7 @@
 :root {
-  --background: #f2f0ed;
+  --background: #2c2f33;
   --gray: #e2bfd9;
-  --primary-50: #fdfefc;
+  --primary-50: #3f4349;
   --primary-100: #eefdef;
   --primary-200: #ddfce2;
   --primary-300: #caf8d5;
@@ -34,98 +34,88 @@
 .App {
   text-align: center;
 }
-
 .App-bg {
-  background-color: var(--background);
   min-height: 100vh;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 50px;
+}
+.Bg-upper {
+  background-color: var(--background);
+  width: 100vw;
+  min-height: 50vh;
   position: relative;
 }
 .Bg-name {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 200px;
-  width: 200px;
-  translate: 0px -75px;
-  position: absolute;
+  color: var(--primary-50);
 }
 .Bg-title {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 75px;
-  color: Black;
-  translate: 100px 75px;
-  position: absolute;
+  color: var(--primary-50);
 }
 .Nav {
-  padding: 20px 40px;
-
   display: flex;
-  justify-content: end;
-  gap: 20px;
+  width: 80vw;
+  margin: 50px;
+  justify-content: space-between;
   align-items: center;
+  top: 0px;
   position: fixed;
-  right: 0px;
 }
-
+.Nav .List {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
 .Nav span {
+  display: flex;
   font-size: 20px;
 }
 
 .Nav span:hover {
   text-decoration: underline;
 }
+.Nav img {
+  height: 50px;
+}
 .Pre-portfolio {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: black;
-  font-size: 100px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.About-me {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: black;
-  font-size: var(--font-size-large);
-  min-height: 100vh;
   display: flex;
   row-gap: 50px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.About-me .Line {
-  transform: rotate(90deg);
-}
-.About-me .Title {
-  font-size: var(--font-size-xlarge);
-}
-.About-me .Part {
+
+.Role-list {
+  font-size: var(--font-size-small);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.About-me .Part img {
-  height: 30px;
-}
-.About-me .Date {
-  font-size: var(--font-size-small);
+  color: var(--primary-50);
 }
 
 .Card-list {
   display: flex;
-  gap: 10px;
+  gap: 30px;
+  z-index: 10;
 }
 .Card {
   border-radius: var(--radius-medium);
-  padding: 10px;
   background-color: white;
 }
 .Card-list .Img {
   border-radius: var(--radius-medium);
   border-radius: 8px;
-  background-color: var(--background);
+  background-color: var(--primary-50);
   width: 200px;
   height: 200px;
 }
@@ -139,6 +129,7 @@
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
