@@ -31,41 +31,36 @@
   --transition: 0.3s ease;
 }
 
-.App {
-  text-align: center;
+.content {
+  position: absolute;
+  max-height: 100vh;
 }
-.App-bg {
-  min-height: 100vh;
-  color: white;
+.Bg-content {
   display: flex;
+  margin: 200px 200px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  row-gap: 50px;
-}
-.Bg-upper {
-  background-color: var(--background);
-  width: 100vw;
-  min-height: 50vh;
-  position: relative;
 }
 .Bg-name {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 200px;
+  display: flex;
+  font-size: 150px;
   color: var(--primary-50);
 }
 .Bg-title {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 75px;
+  display: flex;
+  font-size: 50px;
   color: var(--primary-50);
+  text-align: left;
 }
 .Nav {
   display: flex;
   width: 80vw;
-  margin: 50px;
+  padding: 50px 100px;
   justify-content: space-between;
   align-items: center;
   top: 0px;
+  color: white;
   position: fixed;
 }
 .Nav .List {
@@ -73,8 +68,10 @@
   align-items: center;
   column-gap: 10px;
 }
-.Nav span {
+.Nav .List a {
+  text-decoration: none;
   display: flex;
+  color: white;
   font-size: 20px;
 }
 
@@ -98,9 +95,10 @@
   font-size: var(--font-size-small);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   color: var(--primary-50);
+}
+.Role-list span {
+  text-align: left;
 }
 
 .Card-list {
