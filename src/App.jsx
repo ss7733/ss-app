@@ -12,19 +12,21 @@ import ThreeScene from "./_components/ThreeScene";
 function App() {
   return (
     <BrowserRouter>
-      <ThreeScene>
-        <Nav />
-        <div className="content">
-          <Routes>
-            <Route path="/ss-app" element={<FrontPage />} />
-            <Route path="/ss-app/Experience" element={<Experience />} />
-            <Route path="/ss-app/Portfolio" element={<Portfolio />} />
-          </Routes>
-        </div>
-      </ThreeScene>
+      <div className="App">
+        <ThreeScene>
+          <Nav />
+          <div className="content">
+            <Routes>
+              <Route path="/ss-app" element={<FrontPage />} />
+              <Route path="/ss-app/Experience" element={<Experience />} />
+              <Route path="/ss-app/Portfolio" element={<Portfolio />} />
+            </Routes>
+          </div>
+        </ThreeScene>
+      </div>
 
-      {/* <ThreeSceneOther />
-        <PaintBackground /> */}
+      <ThreeSceneOther />
+      <PaintBackground />
     </BrowserRouter>
   );
 }

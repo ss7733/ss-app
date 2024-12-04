@@ -23,8 +23,12 @@ const ThreeScene = (props) => {
     mountRef.current.appendChild(renderer.domElement);
 
     window.addEventListener("resize", () => {
-      renderer.setSize(window.innerWidth, window.innerHeight); // Update renderer size
-      camera.aspect = window.innerWidth / window.innerHeight; // Update camera aspect ratio
+      const h =
+        window.innerHeight < (window.innerWidth / 16) * 9
+          ? window.innerHeight
+          : (window.innerWidth / 16) * 9;
+      renderer.setSize(window.innerWidth, h); // Update renderer size
+      camera.aspect = window.innerWidth / h; // Update camera aspect ratio
       camera.updateProjectionMatrix(); // Apply changes to the camera
     });
 
@@ -36,7 +40,7 @@ const ThreeScene = (props) => {
       roughness: 0.3, // Slightly rough surface
     });
     const Icosahedron = new THREE.Mesh(geometry, material);
-    Icosahedron.position.set(2, 0, 0);
+    Icosahedron.position.set(2.3, 0, 0);
     scene.add(Icosahedron);
 
     // Add lights
