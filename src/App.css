@@ -187,18 +187,21 @@
     display: flex;
     margin: calc(20px + 40vw) 10vw 0vw 10vw;
     justify-self: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .Bg-name {
     font-family: var(--font-family-title);
     display: flex;
-    font-size: calc(10px + 10vw);
+    font-size: calc(10px + 15vw);
     color: var(--primary-50);
   }
   .Bg-title {
     font-family: var(--font-family-title);
     display: flex;
-    font-size: calc(3px + 3vw);
+    font-size: calc(3px + 5vw);
     color: var(--primary-50);
     align-self: center;
   }
@@ -208,7 +211,7 @@
     justify-self: center;
   }
   .Role-list .Role {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-small) + 1vw;
     display: flex;
     color: var(--primary-50);
     align-self: center;
