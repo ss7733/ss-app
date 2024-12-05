@@ -1,8 +1,7 @@
 import { AnimationWaveText } from "_components/AnimationWaveText";
-import anime from "animejs";
-import React, { useEffect } from "react";
+import React from "react";
 
-const Experience = () => {
+const Education = () => {
   return (
     <div className="Bg-content">
       <div className="Experience-list">
@@ -26,4 +25,4 @@ const Experience = () => {
     </div>
   );
 };
-export default Experience;
+export default Education;

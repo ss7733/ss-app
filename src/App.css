@@ -48,6 +48,7 @@
 .content {
   position: absolute;
   max-height: 100vh;
+  width: 100%;
 }
 .Nav {
   display: flex;
@@ -56,7 +57,7 @@
   justify-content: space-between;
   align-items: center;
   top: 0px;
-  color: white;
+  color: var(--primary-50);
   position: fixed;
   z-index: 100;
 }
@@ -67,21 +68,46 @@
 }
 .Nav .List a {
   text-decoration: none;
-  display: flex;
-  color: white;
-  font-size: calc(12px + 1vw);
+  color: var(--primary-50);
+  font-size: var(--font-size-small);
 }
 
-.Nav span:hover {
-  text-decoration: underline;
+.Nav .List a:hover {
+  color: white;
 }
 .Nav img {
   height: calc(30px + 1vw);
 }
+
 .Bg-content {
   display: flex;
+  max-width: 80%;
+  row-gap: 10px;
   margin: calc(20px + 10vw) 10vw 0vw 10vw;
   flex-direction: column;
+}
+
+.Bg-name {
+  font-family: var(--font-family-title);
+  display: flex;
+  font-size: calc(10px + 10vw);
+  color: var(--primary-50);
+}
+.Bg-title {
+  font-family: var(--font-family-title);
+  display: flex;
+  font-size: calc(3px + 3vw);
+  color: var(--primary-50);
+}
+
+.Role-list {
+  display: flex;
+  flex-direction: column;
+}
+.Role-list .Role {
+  font-size: var(--font-size-xsmall);
+  display: flex;
+  color: var(--primary-50);
 }
 .Experience-list {
   display: flex;
@@ -91,7 +117,7 @@
 .Experience-list .Title {
   display: flex;
   font-family: var(--font-family-title);
-  font-size: var(--font-size-xlarge);
+  font-size: var(--font-size-large);
   color: var(--primary-50);
 }
 .Experience-list .Company {
@@ -111,53 +137,26 @@
   display: flex;
   align-items: center;
 }
-.Bg-name {
-  font-family: var(--font-family-title);
-  display: flex;
-  font-size: calc(10px + 10vw);
-  color: var(--primary-50);
-}
-.Bg-title {
-  font-family: var(--font-family-title);
-  display: flex;
-  font-size: calc(3px + 3vw);
-  color: var(--primary-50);
-  text-align: left;
-}
-.Role-list {
-  display: flex;
-  flex-direction: column;
-}
-.Role-list .Role {
-  font-size: var(--font-size-xsmall);
-  text-align: left;
-  display: flex;
-  color: var(--primary-50);
-}
 
-.Pre-portfolio {
-  font-family: var(--font-family-content);
-  color: black;
-  display: flex;
-  row-gap: 50px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 .Card-list {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  justify-self: center;
   z-index: 10;
 }
 .Card {
   border-radius: var(--radius-medium);
-  background-color: white;
+  background-color: black;
+  color: var(--primary-50);
+  text-align: center;
+  width: 200px;
 }
 .Card-list .Img {
   border-radius: var(--radius-medium);
   border-radius: 8px;
   background-color: var(--primary-50);
-  width: 200px;
+
   height: 200px;
 }
 .Card-list .Text {
@@ -166,7 +165,97 @@
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 20px;
 }
+.PopMenu {
+  position: absolute;
+  padding: 5px;
+}
 
+@media only screen and (max-width: 600px) {
+  .Nav .List {
+    display: flex;
+    row-gap: 1vw;
+    flex-direction: column;
+    align-items: center;
+    column-gap: 1vw;
+  }
+  .Nav .List a {
+    text-decoration: none;
+    color: var(--primary-50);
+    font-size: var(--font-size-base);
+  }
+  .Bg-content {
+    display: flex;
+    margin: calc(20px + 40vw) 10vw 0vw 10vw;
+    justify-self: center;
+  }
+
+  .Bg-name {
+    font-family: var(--font-family-title);
+    display: flex;
+    font-size: calc(10px + 10vw);
+    color: var(--primary-50);
+  }
+  .Bg-title {
+    font-family: var(--font-family-title);
+    display: flex;
+    font-size: calc(3px + 3vw);
+    color: var(--primary-50);
+    align-self: center;
+  }
+  .Role-list {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+  }
+  .Role-list .Role {
+    font-size: var(--font-size-small);
+    display: flex;
+    color: var(--primary-50);
+    align-self: center;
+  }
+
+  .Experience-list {
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-50);
+  }
+  .Experience-list .Title {
+    display: flex;
+    font-family: var(--font-family-title);
+    font-size: var(--font-size-large);
+    color: var(--primary-50);
+    align-self: center;
+  }
+  .Experience-list .Company {
+    display: flex;
+    font-size: var(--font-size-base);
+    color: var(--primary-50);
+    align-self: center;
+  }
+
+  .Experience-list .Container {
+    display: flex;
+    font-size: var(--font-size-small);
+    color: var(--primary-50);
+    flex-direction: column;
+    align-items: center;
+  }
+  .Experience-list .Container .Detail {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .Card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .Card-list {
+    grid-template-columns: 1fr;
+  }
+}
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

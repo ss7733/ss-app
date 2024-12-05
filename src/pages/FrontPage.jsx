@@ -1,7 +1,5 @@
 import { AnimationWaveText } from "_components/AnimationWaveText";
-import anime from "animejs";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React from "react";
 const FrontPage = () => {
   return (
     <div className="Bg-content">

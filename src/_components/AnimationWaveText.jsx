@@ -42,10 +42,7 @@ export const AnimationWaveText = (props) => {
         { value: 0.5, easing: "easeOutSine", duration: 500 },
         { value: 1, easing: "easeInOutQuad", duration: 500 },
       ],
-      delay: anime.stagger(100, {
-        grid: [text.length, 1],
-        from: 0,
-      }),
+      delay: anime.stagger(100),
     });
   };
   useEffect(() => {

@@ -3,7 +3,10 @@ import * as THREE from "three";
 
 const ThreeScene = (props) => {
   const mountRef = useRef(null);
-
+  let h =
+    window.innerHeight < (window.innerWidth / 16) * 9
+      ? window.innerHeight
+      : (window.innerWidth / 16) * 9;
   useEffect(() => {
     // Create the Three.js scene
     const scene = new THREE.Scene();
@@ -11,7 +14,7 @@ const ThreeScene = (props) => {
     // Create a camera
     const camera = new THREE.PerspectiveCamera(
       75, // Field of view
-      window.innerWidth / window.innerHeight, // Aspect ratio
+      window.innerWidth / h, // Aspect ratio
       0.1, // Near clipping plane
       1000 // Far clipping plane
     );
@@ -19,18 +22,8 @@ const ThreeScene = (props) => {
 
     // Create a renderer and attach it to the DOM
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth, h);
     mountRef.current.appendChild(renderer.domElement);
-
-    window.addEventListener("resize", () => {
-      const h =
-        window.innerHeight < (window.innerWidth / 16) * 9
-          ? window.innerHeight
-          : (window.innerWidth / 16) * 9;
-      renderer.setSize(window.innerWidth, h); // Update renderer size
-      camera.aspect = window.innerWidth / h; // Update camera aspect ratio
-      camera.updateProjectionMatrix(); // Apply changes to the camera
-    });
 
     // // Add a cube to the scene
     const geometry = new THREE.IcosahedronGeometry();
@@ -40,9 +33,21 @@ const ThreeScene = (props) => {
       roughness: 0.3, // Slightly rough surface
     });
     const Icosahedron = new THREE.Mesh(geometry, material);
-    Icosahedron.position.set(2.3, 0, 0);
+    Icosahedron.position.set(window.innerWidth < 600 ? 0 : 2.3, 0, 0);
     scene.add(Icosahedron);
 
+    window.addEventListener("resize", () => {
+      h =
+        window.innerHeight < (window.innerWidth / 16) * 9
+          ? window.innerHeight
+          : (window.innerWidth / 16) * 9;
+      console.log("h", h);
+      renderer.setSize(window.innerWidth, h); // Update renderer size
+      Icosahedron.position.set(window.innerWidth < 600 ? 0 : 2.3, 0, 0);
+
+      camera.aspect = window.innerWidth / h; // Update camera aspect ratio
+      camera.updateProjectionMatrix(); // Apply changes to the camera
+    });
     // Add lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Soft white light
     scene.add(ambientLight);
