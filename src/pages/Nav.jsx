@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "../imgs/ss-icon.png";
-import menu from "../svgs/menu.svg";
+import { ReactComponent as MenuIcon } from "../svgs/menu.svg";
 import React, { useEffect, useRef, useState } from "react";
 import anime from "animejs";
 const Nav = () => {
@@ -120,10 +120,8 @@ const PopMenu = () => {
       style={{ position: "relative", display: "inline-block" }}
     >
       {/* Menu button */}
-      <img
-        src={menu}
-        className="Img"
-        alt="Menu"
+      <MenuIcon
+        className="NavImg"
         onClick={() => !running && handleOpen()}
         style={{ cursor: "pointer" }}
       />

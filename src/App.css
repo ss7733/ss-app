@@ -39,6 +39,14 @@
   --transition: 0.3s ease;
 }
 
+.Img {
+  fill: var(--primary-50);
+}
+.NavImg {
+  fill: var(--primary-50);
+  width: calc(10px + 8vw);
+  height: calc(10px + 8vw);
+}
 .App {
   width: 100vw;
   height: 100vh;
@@ -171,6 +179,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .Nav {
+    width: 90vw;
+    padding: 3vw 5vw 3vw 5vw;
+  }
   .Nav .List {
     display: flex;
     row-gap: 1vw;
@@ -185,7 +197,7 @@
   }
   .Bg-content {
     display: flex;
-    margin: calc(20px + 40vw) 10vw 0vw 10vw;
+    margin: calc(20px + 60vw) 10vw 0vw 10vw;
     justify-self: center;
     white-space: nowrap;
     overflow: hidden;
@@ -195,7 +207,7 @@
   .Bg-name {
     font-family: var(--font-family-title);
     display: flex;
-    font-size: calc(10px + 15vw);
+    font-size: calc(10px + 12vw);
     color: var(--primary-50);
   }
   .Bg-title {
@@ -206,15 +218,15 @@
     align-self: center;
   }
   .Role-list {
+    margin-top: 5vh;
     display: flex;
     flex-direction: column;
-    justify-self: center;
   }
   .Role-list .Role {
     font-size: var(--font-size-small) + 1vw;
     display: flex;
+    align-items: center;
     color: var(--primary-50);
-    align-self: center;
   }
 
   .Experience-list {
