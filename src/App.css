@@ -22,7 +22,7 @@
   --radius-full: 50%;
 
   /* Font sizes */
-  --font-size-xsmall: calc(1px + 0.75vw);
+  --font-size-xsmall: calc(5px + 0.75vw);
   --font-size-small: calc(5px + 1vw);
   --font-size-base: calc(10px + 1.5vw);
   --font-size-large: calc(15px + 2vw);
@@ -60,8 +60,8 @@
 }
 .Nav {
   display: flex;
-  width: 80vw;
-  padding: 3vw 10vw 3vw 10vw;
+  width: 90vw;
+  padding: 3vw 5vw 3vw 5vw;
   justify-content: space-between;
   align-items: center;
   top: 0px;
@@ -91,7 +91,7 @@
   display: flex;
   max-width: 80%;
   row-gap: 10px;
-  margin: calc(20px + 10vw) 10vw 0vw 10vw;
+  margin: calc(20px + 5vw) 5vw 0vw 5vw;
   flex-direction: column;
 }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+
 const ThreeSceneOther = (props) => {
   const mountRef = useRef(null);
 
@@ -45,11 +46,22 @@ const ThreeSceneOther = (props) => {
     scene.add(sphere);
 
     //Create a plane that receives shadows (but does not cast them)
-    const planeGeometry = new THREE.PlaneGeometry(20, 20, 32, 32);
+    const planeGeometry = new THREE.PlaneGeometry(400, 9, 20, 100);
     const planeMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
     const plane = new THREE.Mesh(planeGeometry, planeMaterial);
     plane.receiveShadow = true;
     scene.add(plane);
+
+    window.addEventListener("resize", () => {
+      let h =
+        window.innerHeight < (window.innerWidth / 16) * 9
+          ? window.innerHeight
+          : (window.innerWidth / 16) * 9;
+      renderer.setSize(window.innerWidth, h); // Update renderer size
+
+      camera.aspect = window.innerWidth / h; // Update camera aspect ratio
+      camera.updateProjectionMatrix(); // Apply changes to the camera
+    });
 
     //Create a helper for the shadow camera (optional)
     const helper = new THREE.CameraHelper(light.shadow.camera);

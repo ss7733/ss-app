@@ -5,14 +5,16 @@ import Nav from "./pages/Nav";
 import Experience from "./pages/Experience";
 import Portfolio from "./pages/Portfolio";
 import React from "react";
-import ThreeScene from "./_components/ThreeScene";
+
+import FrontPageBG from "./_components/threeJS/frontpage/FrontPageBG";
 import Education from "pages/Education";
+import ThreeJSPracticePage from "pages/ThreeJSPracticePage";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <ThreeScene>
+        <FrontPageBG>
           <Nav />
           <div className="content">
             <Routes>
@@ -20,9 +22,13 @@ function App() {
               <Route path="/ss-app/Experience" element={<Experience />} />
               <Route path="/ss-app/Education" element={<Education />} />
               <Route path="/ss-app/Portfolio" element={<Portfolio />} />
+              <Route
+                path="/ss-app/Practice"
+                element={<ThreeJSPracticePage />}
+              />
             </Routes>
           </div>
-        </ThreeScene>
+        </FrontPageBG>
       </div>
     </BrowserRouter>
   );

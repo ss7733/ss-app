@@ -4,7 +4,7 @@ const FrontPage = () => {
   return (
     <div className="Bg-content">
       <div className="Bg-name">
-        <AnimationWaveText text="I'm Casper" />
+        <AnimationWaveText text="Casper" />
       </div>
       <div className="Bg-title">
         <AnimationWaveText text="A Multimedia Developer" />

@@ -3,6 +3,7 @@ import Logo from "../imgs/ss-icon.png";
 import { ReactComponent as MenuIcon } from "../svgs/menu.svg";
 import React, { useEffect, useRef, useState } from "react";
 import anime from "animejs";
+const listArray = ["Home", "Experience", "Education", "Portfolio", "Practice"];
 const Nav = () => {
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -18,18 +19,23 @@ const Nav = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <div className="Nav">
       <img alt="" src={Logo} />
       {width > 600 ? (
         <div className="List">
-          <Link to="/ss-app">Home</Link>
-          <div>/</div>
-          <Link to="/ss-app/Experience">Experience</Link>
-          <div>/</div>
-          <Link to="/ss-app/Education">Education</Link>
-          <div>/</div>
-          <Link to="/ss-app/Portfolio">Portfolio</Link>
+          {listArray.map((item, idx) => (
+            <div key={item}>
+              <Link
+                className="Link"
+                to={item === "Home" ? "/ss-app" : "/ss-app/" + item}
+              >
+                {item}
+              </Link>
+              {idx <= listArray.length - 2 && <> /</>}
+            </div>
+          ))}
         </div>
       ) : (
         <div>
@@ -46,7 +52,6 @@ const PopMenu = () => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null); // Ref for the PopMenu container
   const popMenuRef = useRef(null); // Ref for the actual dropdown menu
-  const listArray = ["Home", "Experience", "Education", "Portfolio"];
 
   const [running, setRunning] = useState(false);
   const handleOpen = () => {
